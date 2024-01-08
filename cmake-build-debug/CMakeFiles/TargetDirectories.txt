@@ -1,0 +1,3 @@
+C:/Users/Deer/codecool/c++/cpp-magic-ascii-art/cmake-build-debug/CMakeFiles/cpp_magic_ascii_art.dir
+C:/Users/Deer/codecool/c++/cpp-magic-ascii-art/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/Deer/codecool/c++/cpp-magic-ascii-art/cmake-build-debug/CMakeFiles/rebuild_cache.dir
