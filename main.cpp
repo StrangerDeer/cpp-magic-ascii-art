@@ -1,10 +1,17 @@
 #include <iostream>
 #include "EasyBMP/EasyBMP.h"
-
-using namespace std;
+#include "image-to-ascii/BMPToASCII.h"
 
 int main() {
-    cout << endl
+
+    std::string imagePath = "../pics/test1.bmp";
+    std::string outputPath = "../pics/test4.txt";
+
+    BMPToASCII bmpToAscii(imagePath, outputPath);
+    bmpToAscii.getASCIIString();
+
+
+    /*cout << endl
          << "Using EasyBMP Version " << _EasyBMP_Version_ << endl << endl
          << "Copyright (c) by the EasyBMP Project 2005-6" << endl
          << "WWW: http://easybmp.sourceforge.net" << endl << endl;
@@ -56,6 +63,6 @@ int main() {
     Output.SetBitDepth( 24 );
     Rescale( Output, 'p' , 50 );
     cout << "writing 24bpp scaled image ..." << endl;
-    Output.WriteToFile( "EasyBMPoutput24bpp_rescaled.bmp" );
+    Output.WriteToFile( "EasyBMPoutput24bpp_rescaled.bmp" );*/
     return 0;
 }
