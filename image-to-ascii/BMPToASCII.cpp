@@ -11,7 +11,7 @@ using namespace std;
 #include "BMPToASCII.h"
 
 
-std::string BMPToASCII::getASCIIString() {
+std::string BMPToASCII::getASCIIString(double scaleFactor) {
     std::ifstream imageFile(imagePath, std::ios::binary);
 
     if (!imageFile.is_open()) {
@@ -33,6 +33,10 @@ std::string BMPToASCII::getASCIIString() {
     // Calculate row size, including padding
     int rowSize = ((width * 3 + 3) / 4) * 4;
 
+    // Calculate scaled dimensions
+    int scaledWidth = static_cast<int>(width * scaleFactor);
+    int scaledHeight = static_cast<int>(height * scaleFactor);
+
     // Skip to image data
     imageFile.seekg(54, std::ios::beg);
 
@@ -42,9 +46,17 @@ std::string BMPToASCII::getASCIIString() {
     std::string endl;
     endl = char(13);
     endl += char(10);
-    for (int y = 0; y < height; y++) {
+    for (int y = 0; y < scaledHeight; y++) {
         std::string row = "";
-        for (int x = 0; x < width; x++) {
+        for (int x = 0; x < scaledWidth; x++) {
+            // Calculate the corresponding position in the original image
+            int originalX = static_cast<int>(x / scaleFactor);
+            int originalY = static_cast<int>(y / scaleFactor);
+
+            // Move to the original position in the file
+            imageFile.seekg(54 + (originalY * rowSize) + (originalX * 3), std::ios::beg);
+
+
             if (!imageFile.read(reinterpret_cast<char*>(pixel), 3)) {
                 std::cerr << "Error reading image data" << std::endl;
                 imageFile.close();

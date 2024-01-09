@@ -6,11 +6,12 @@
 
 #include <utility>
 
-std::string ImageToASCII::getASCIIString() {
-    return std::string();
-}
-
 ImageToASCII::ImageToASCII(const std::string &imagePath, const std::string &outputPath) {
     this->imagePath = imagePath;
     this->outputPath = outputPath;
 }
+
+std::string ImageToASCII::getASCIIString(double scaleFactor) {
+    return std::string();
+}
+
