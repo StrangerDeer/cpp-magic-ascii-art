@@ -10,7 +10,7 @@
 class ImageToASCII {
 public:
     ImageToASCII(const std::string &imagePath, const std::string &outputPath);
-    virtual std::string getASCIIString();
+    virtual std::string getASCIIString(double scaleFactor = 1.00);
     std::string characters = " .,:;ox%#@";
     std::string imagePath;
     std::string outputPath;

@@ -5,10 +5,10 @@
 int main() {
 
     std::string imagePath = "../pics/test1.bmp";
-    std::string outputPath = "../pics/test4.txt";
+    std::string outputPath = "../pics/test5.txt";
 
     BMPToASCII bmpToAscii(imagePath, outputPath);
-    bmpToAscii.getASCIIString();
+    std::cout << bmpToAscii.getASCIIString(0.10) << std::endl;
 
 
     /*cout << endl
