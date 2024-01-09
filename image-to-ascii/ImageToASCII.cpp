@@ -11,7 +11,7 @@ ImageToASCII::ImageToASCII(const std::string &imagePath, const std::string &outp
     this->outputPath = outputPath;
 }
 
-std::string ImageToASCII::getASCIIString(double scaleFactor) {
+std::string ImageToASCII::getASCIIString(double scaleFactor, bool terminalChars) {
     return std::string();
 }
 
