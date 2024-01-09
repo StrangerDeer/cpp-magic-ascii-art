@@ -1,16 +1,21 @@
 #include <iostream>
 #include "EasyBMP/EasyBMP.h"
 #include "image-to-ascii/BMPToASCII.h"
+#include "menu/Menu.h"
 
 int main() {
 
-    std::string imagePath = "../pics/test2.bmp";
-    std::string outputPath = "../pics/test5.txt";
+    std::string imagePath = "../pics/person_with_candle.bmp";
+    std::string outputPath = "../pics/test.txt";
 
-    auto *bmpToASCII = new BMPToASCII(imagePath, outputPath);
-    std::cout << bmpToASCII->getASCIIString(0.35, true) << std::endl;
+    Menu menu;
+    menu.run();
 
-    delete bmpToASCII;
+
+    auto *imgToASCII = new BMPToASCII(imagePath, outputPath);
+    std::cout << imgToASCII->getASCIIString(0.35, true) << std::endl;
+
+    delete imgToASCII;
 
 
     /*cout << endl
