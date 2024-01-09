@@ -4,11 +4,13 @@
 
 int main() {
 
-    std::string imagePath = "../pics/test1.bmp";
+    std::string imagePath = "../pics/test2.bmp";
     std::string outputPath = "../pics/test5.txt";
 
-    BMPToASCII bmpToAscii(imagePath, outputPath);
-    std::cout << bmpToAscii.getASCIIString(0.25) << std::endl;
+    auto *bmpToASCII = new BMPToASCII(imagePath, outputPath);
+    std::cout << bmpToASCII->getASCIIString(0.35, true) << std::endl;
+
+    delete bmpToASCII;
 
 
     /*cout << endl
