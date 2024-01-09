@@ -8,7 +8,7 @@ int main() {
     std::string outputPath = "../pics/test5.txt";
 
     BMPToASCII bmpToAscii(imagePath, outputPath);
-    std::cout << bmpToAscii.getASCIIString(0.10) << std::endl;
+    std::cout << bmpToAscii.getASCIIString(0.25) << std::endl;
 
 
     /*cout << endl

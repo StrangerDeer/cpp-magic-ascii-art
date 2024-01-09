@@ -11,5 +11,5 @@
 class BMPToASCII : public ImageToASCII {
 public:
     BMPToASCII(const std::string &imagePath, const std::string &outputPath) : ImageToASCII(imagePath, outputPath){};
-    std::string getASCIIString(double scaleFactor = 1.00) override;
+    std::string getASCIIString(double scaleFactor = 1.00, bool terminalChars = false) override;
 };
