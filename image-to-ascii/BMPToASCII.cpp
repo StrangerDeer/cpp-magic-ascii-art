@@ -50,7 +50,7 @@ std::string BMPToASCII::getASCIIString(double scaleFactor, bool terminalChars) {
     std::string endl;
     endl = char(13);
     endl += char(10);
-    for (int y = 0; y < scaledHeight; y++) {
+    for (int y = 0; y < scaledHeight; y = y + 3) {
         std::string row = "";
         for (int x = 0; x < scaledWidth; x++) {
             // Calculate the corresponding position in the original image
@@ -59,7 +59,6 @@ std::string BMPToASCII::getASCIIString(double scaleFactor, bool terminalChars) {
 
             // Move to the original position in the file
             imageFile.seekg(54 + (originalY * rowSize) + (originalX * 3), std::ios::beg);
-
 
             if (!imageFile.read(reinterpret_cast<char*>(pixel), 3)) {
                 std::cerr << "Error reading image data" << std::endl;
@@ -71,8 +70,6 @@ std::string BMPToASCII::getASCIIString(double scaleFactor, bool terminalChars) {
             row += characters[characters.length() -1 - i];
         }
 
-        // Skip over padding
-        imageFile.seekg(rowSize - 3 * width, std::ios::cur);
         std::reverse(row.begin(), row.end());
         result += row;
         result += endl;

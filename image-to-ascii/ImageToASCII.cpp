@@ -14,4 +14,3 @@ ImageToASCII::ImageToASCII(const std::string &imagePath, const std::string &outp
 std::string ImageToASCII::getASCIIString(double scaleFactor, bool terminalChars) {
     return std::string();
 }
-
