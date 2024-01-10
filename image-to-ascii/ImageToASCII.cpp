@@ -6,11 +6,24 @@
 
 #include <utility>
 
-ImageToASCII::ImageToASCII(const std::string &imagePath, const std::string &outputPath) {
-    this->imagePath = imagePath;
-    this->outputPath = outputPath;
+ImageToASCII::ImageToASCII() = default;
+
+std::string ImageToASCII::getASCIIString(double scaleFactor) {
+    return std::string();
 }
 
-std::string ImageToASCII::getASCIIString(double scaleFactor, bool terminalChars) {
-    return std::string();
+void ImageToASCII::useReverseCharacters(const bool &reverseColors) {
+    if (reverseColors) {
+        this->charactersToUse = reversedCharacters;
+    } else {
+        this->charactersToUse = normalCharacters;
+    }
+}
+
+void ImageToASCII::setImagePath(const std::string &imagePath) {
+    this->imagePath = imagePath;
+}
+
+void ImageToASCII::setOutputPath(const std::string &outputPath) {
+    this->outputPath = outputPath;
 }
