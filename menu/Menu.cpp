@@ -70,7 +70,10 @@ void Menu::chooseFileFormat(const int &input) {
             chosenFileFormat = "png";
             break;
         }
-        default: std::cerr << "Something went wrong";
+        default: {
+            std::cerr << "Something went wrong";
+            displayFileFormats();
+        }
     }
 
 }
@@ -115,22 +118,29 @@ void Menu::displayScaleFactors() {
 void Menu::chooseScaleFactor(const int &input) {
     switch (input) {
         case 1: {
-            imageScaleFactor = 0.45;
+            imageScaleFactor = 0.6;
             break;
         }
         case 2: {
-            imageScaleFactor = 0.35;
+            imageScaleFactor = 0.45;
             break;
         }
         case 3: {
-            imageScaleFactor = 0.25;
+            imageScaleFactor = 0.35;
             break;
         }
         case 4: {
+            imageScaleFactor = 0.25;
+            break;
+        }
+        case 5: {
             imageScaleFactor = 0.15;
             break;
         }
-        default: std::cerr << "Something went wrong";
+        default: {
+            std::cerr << "Something went wrong";
+            displayScaleFactors();
+        }
     }
 }
 
