@@ -60,11 +60,28 @@ void Menu::displayFileFormats() {
 }
 
 void Menu::chooseFileFormat(const int &input) {
-    chosenFileFormat = fileFormats.at(input-1);
+    switch (input) {
+        case 1: {
+            chosenFileFormat = "bmp";
+            converter = new BMPToASCII();
+            break;
+        }
+        case 2: {
+            chosenFileFormat = "jpg";
+            break;
+        }
+        case 3: {
+            chosenFileFormat = "png";
+            break;
+        }
+        default: std::cerr << "Something went wrong";
+    }
+
 }
 
 void Menu::getImagePath() {
     imageFilePath = "../pics/" + chosenFileName + "." + chosenFileFormat;
+    converter->setImagePath(imageFilePath);
 }
 
 void Menu::chooseOutputName() {
@@ -72,6 +89,7 @@ void Menu::chooseOutputName() {
     std::cout << "Choose a name for the new txt file!" << std::endl;
     std::cin >> outputName;
     outputPath = "../pics/" + outputName + ".txt";
+    converter->setOutputPath(outputPath);
 }
 
 bool Menu::isInputCorrect(int input, int maxInput) {
@@ -174,17 +192,16 @@ void Menu::chooseIfImageWillBeDisplayed(const int &input) {
         }
         default: std::cerr << "Something went wrong";
     }
+    converter->useReverseCharacters(isColorReversed);
 }
 
 void Menu::processImage() {
-    auto *imgToASCII = new BMPToASCII(imageFilePath, outputPath);
-    imgToASCII->useReverseCharacters(isColorReversed);
     if (isImageDisplayed) {
-        std::cout << imgToASCII->getASCIIString(imageScaleFactor) << std::endl;
+        std::cout << converter->getASCIIString(imageScaleFactor) << std::endl;
     } else {
-        imgToASCII->getASCIIString(imageScaleFactor);
+        converter->getASCIIString(imageScaleFactor);
     }
 
-    delete imgToASCII;
+    delete converter;
 }
 
