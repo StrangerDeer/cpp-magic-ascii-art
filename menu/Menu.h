@@ -33,6 +33,8 @@ private:
 
     static bool isInputCorrect(int input, int maxInput);
 
+    void processImage();
+
     void getImagePath();
 
     std::string chosenFileName;

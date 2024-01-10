@@ -4,6 +4,7 @@
 
 #include <iostream>
 #include "Menu.h"
+#include "../image-to-ascii/BMPToASCII.h"
 
 Menu::Menu() {
     isRunning = true;
@@ -19,6 +20,7 @@ void Menu::run() {
         displayScaleFactors();
         displayColorReversion();
         displayImageDisplay();
+        processImage();
         isRunning = false;
     }
 }
@@ -99,19 +101,19 @@ void Menu::displayScaleFactors() {
 void Menu::chooseScaleFactor(const int &input) {
     switch (input) {
         case 1: {
-            imageScaleFactor = 4.5;
+            imageScaleFactor = 0.45;
             break;
         }
         case 2: {
-            imageScaleFactor = 3.5;
+            imageScaleFactor = 0.35;
             break;
         }
         case 3: {
-            imageScaleFactor = 2.5;
+            imageScaleFactor = 0.25;
             break;
         }
         case 4: {
-            imageScaleFactor = 1.5;
+            imageScaleFactor = 0.15;
             break;
         }
         default: std::cerr << "Something went wrong";
@@ -140,6 +142,7 @@ void Menu::chooseColorReversion(const int &input) {
         }
         case 2: {
             isColorReversed = false;
+            break;
         }
         default: std::cerr << "Something went wrong";
     }
@@ -167,8 +170,21 @@ void Menu::chooseIfImageWillBeDisplayed(const int &input) {
         }
         case 2: {
             isImageDisplayed = false;
+            break;
         }
         default: std::cerr << "Something went wrong";
     }
+}
+
+void Menu::processImage() {
+    auto *imgToASCII = new BMPToASCII(imageFilePath, outputPath);
+    imgToASCII->useReverseCharacters(isColorReversed);
+    if (isImageDisplayed) {
+        std::cout << imgToASCII->getASCIIString(imageScaleFactor) << std::endl;
+    } else {
+        imgToASCII->getASCIIString(imageScaleFactor);
+    }
+
+    delete imgToASCII;
 }
 

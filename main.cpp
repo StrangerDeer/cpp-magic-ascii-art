@@ -8,15 +8,9 @@ int main() {
     std::string imagePath = "../pics/thumbs_up.bmp";
     std::string outputPath = "../pics/test.txt";
 
-  /*  Menu menu;
-    menu.run();*/
+    Menu menu;
+    menu.run();
 
-
-    auto *imgToASCII = new BMPToASCII(imagePath, outputPath);
-    imgToASCII->useReverseCharacters(true);
-    std::cout << imgToASCII->getASCIIString(0.35) << std::endl;
-
-    delete imgToASCII;
 
 
     /*cout << endl
