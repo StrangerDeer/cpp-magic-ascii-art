@@ -5,15 +5,15 @@
 
 int main() {
 
-    std::string imagePath = "../pics/person_with_candle.bmp";
+    std::string imagePath = "../pics/thumbs_up.bmp";
     std::string outputPath = "../pics/test.txt";
 
-    Menu menu;
-    menu.run();
+  /*  Menu menu;
+    menu.run();*/
 
 
-    auto *imgToASCII = new BMPToASCII(imagePath, outputPath);
-    std::cout << imgToASCII->getASCIIString(0.35, true) << std::endl;
+    auto *imgToASCII = new BMPToASCII(imagePath, outputPath, false);
+    std::cout << imgToASCII->getASCIIString(0.35) << std::endl;
 
     delete imgToASCII;
 

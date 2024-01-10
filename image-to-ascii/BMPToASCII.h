@@ -10,6 +10,6 @@
 
 class BMPToASCII : public ImageToASCII {
 public:
-    BMPToASCII(const std::string &imagePath, const std::string &outputPath) : ImageToASCII(imagePath, outputPath){};
-    std::string getASCIIString(double scaleFactor = 1.00, bool terminalChars = false) override;
+    BMPToASCII(const std::string &imagePath, const std::string &outputPath, const bool &reverseColors) : ImageToASCII(imagePath, outputPath, reverseColors){};
+    std::string getASCIIString(double scaleFactor = 1.00) override;
 };

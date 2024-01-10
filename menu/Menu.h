@@ -7,6 +7,7 @@
 #include <string>
 #include <vector>
 #include <map>
+#include "../image-to-ascii/ImageToASCII.h"
 
 class Menu {
 public:
@@ -42,6 +43,8 @@ private:
     double imageScaleFactor;
     bool isColorReversed;
     bool isImageDisplayed;
+
+    ImageToASCII* converter;
 
     bool isRunning;
 };

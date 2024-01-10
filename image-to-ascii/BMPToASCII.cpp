@@ -11,11 +11,7 @@ using namespace std;
 #include "BMPToASCII.h"
 
 
-std::string BMPToASCII::getASCIIString(double scaleFactor, bool terminalChars) {
-    if (terminalChars) {
-        characters = terminalCharacters;
-    }
-
+std::string BMPToASCII::getASCIIString(double scaleFactor) {
     std::ifstream imageFile(imagePath, std::ios::binary);
 
     if (!imageFile.is_open()) {
@@ -48,8 +44,7 @@ std::string BMPToASCII::getASCIIString(double scaleFactor, bool terminalChars) {
     uint8_t pixel[3];
     std::string result = "";
     std::string endl;
-    endl = char(13);
-    endl += char(10);
+    endl = "\n";
     for (int y = 0; y < scaledHeight; y = y + 3) {
         std::string row = "";
         for (int x = 0; x < scaledWidth; x++) {
@@ -66,8 +61,8 @@ std::string BMPToASCII::getASCIIString(double scaleFactor, bool terminalChars) {
             }
 
             int i = static_cast<int>(0.11 * pixel[0] + 0.59 * pixel[1] + 0.3 * pixel[2]);
-            i = (i * characters.length()) / 256;
-            row += characters[characters.length() -1 - i];
+            i = (i * charactersToUse.length()) / 256;
+            row += charactersToUse[charactersToUse.length() - 1 - i];
         }
 
         std::reverse(row.begin(), row.end());
