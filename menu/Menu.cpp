@@ -21,7 +21,7 @@ void Menu::run() {
         displayColorReversion();
         displayImageDisplay();
         processImage();
-        isRunning = false;
+        displayContinue();
     }
 }
 
@@ -199,5 +199,29 @@ void Menu::processImage() {
     }
 
     delete converter;
+}
+
+void Menu::displayContinue() {
+    int input;
+    std::cout << "Would you like to generate more images?" << std::endl;
+    std::cout << "   " + std::to_string(1) + " - " + "Yes" << std::endl;
+    std::cout << "   " + std::to_string(2) + " - " + "No" << std::endl;
+    std::cin >> input;
+
+    chooseContinue(input);
+}
+
+void Menu::chooseContinue(const int &input) {
+    switch (input) {
+        case 1: {
+            isRunning = true;
+            break;
+        }
+        case 2: {
+            isRunning = false;
+            break;
+        }
+        default: std::cerr << "Something went wrong";
+    }
 }
 
