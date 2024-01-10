@@ -67,10 +67,6 @@ void Menu::chooseFileFormat(const int &input) {
             break;
         }
         case 2: {
-            chosenFileFormat = "jpg";
-            break;
-        }
-        case 3: {
             chosenFileFormat = "png";
             break;
         }

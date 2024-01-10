@@ -15,7 +15,7 @@ public:
     void run();
 
 private:
-    std::vector<std::string> fileFormats = {"bmp", "png", "jpg"};
+    std::vector<std::string> fileFormats = {"bmp", "png"};
     std::vector<std::string> imageNames = {"thumbs_up", "person_with_candle"};
     std::vector<std::string> scaleFactors = {"large", "normal", "small", "extra small"};
 
