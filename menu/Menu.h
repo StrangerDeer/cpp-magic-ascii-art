@@ -23,6 +23,7 @@ private:
     void chooseImageName(const int &input);
     void displayFileFormats();
     void chooseFileFormat(const int &input);
+    void getImagePath();
     void chooseOutputName();
     void displayScaleFactors();
     void chooseScaleFactor(const int &input);
@@ -31,11 +32,12 @@ private:
     void displayImageDisplay();
     void chooseIfImageWillBeDisplayed(const int &input);
 
+    void displayContinue();
+    void chooseContinue(const int &input);
+
     static bool isInputCorrect(int input, int maxInput);
 
     void processImage();
-
-    void getImagePath();
 
     std::string chosenFileName;
     std::string chosenFileFormat;
