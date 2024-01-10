@@ -12,7 +12,8 @@ int main() {
     menu.run();*/
 
 
-    auto *imgToASCII = new BMPToASCII(imagePath, outputPath, false);
+    auto *imgToASCII = new BMPToASCII(imagePath, outputPath);
+    imgToASCII->useReverseCharacters(true);
     std::cout << imgToASCII->getASCIIString(0.35) << std::endl;
 
     delete imgToASCII;
