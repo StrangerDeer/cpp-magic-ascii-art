@@ -45,7 +45,7 @@ std::string BMPToASCII::getASCIIString(double scaleFactor) {
     std::string result = "";
     std::string endl;
     endl = "\n";
-    for (int y = 0; y < scaledHeight; y = y + 3) {
+    for (int y = 0; y < scaledHeight; y = y + 2) {
         std::string row = "";
         for (int x = 0; x < scaledWidth; x++) {
             // Calculate the corresponding position in the original image
