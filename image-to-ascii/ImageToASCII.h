@@ -9,9 +9,11 @@
 
 class ImageToASCII {
 public:
-    ImageToASCII(const std::string &imagePath, const std::string &outputPath);
+    ImageToASCII();
     virtual std::string getASCIIString(double scaleFactor = 1.00);
     void useReverseCharacters(const bool &reverseColors);
+    void setImagePath(const std::string &imagePath);
+    void setOutputPath(const std::string &outputPath);
 protected:
     std::string charactersToUse = "";
     std::string normalCharacters = " .,:;ox%#@";

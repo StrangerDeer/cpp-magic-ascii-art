@@ -10,6 +10,6 @@
 
 class BMPToASCII : public ImageToASCII {
 public:
-    BMPToASCII(const std::string &imagePath, const std::string &outputPath) : ImageToASCII(imagePath, outputPath){};
+    BMPToASCII() : ImageToASCII(){};
     std::string getASCIIString(double scaleFactor = 1.00) override;
 };
