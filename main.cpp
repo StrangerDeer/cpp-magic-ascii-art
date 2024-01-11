@@ -12,12 +12,5 @@ int main() {
     Menu menu;
     menu.run();
 
-
-
-    PNGReader png(imagePath, outputPath);
-
-    png.loadPicture();
-    png.printPicture();
-
     return 0;
 }

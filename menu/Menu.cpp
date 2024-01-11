@@ -5,6 +5,7 @@
 #include <iostream>
 #include "Menu.h"
 #include "../image-to-ascii/BMPToASCII.h"
+#include "../image-to-ascii/PNGReader.h"
 
 Menu::Menu() {
     isRunning = true;
@@ -68,6 +69,7 @@ void Menu::chooseFileFormat(const int &input) {
         }
         case 2: {
             chosenFileFormat = "png";
+            converter = new PNGReader();
             break;
         }
         default: {

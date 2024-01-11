@@ -15,16 +15,16 @@
 class PNGReader : public ImageToASCII {
 
 public:
-    PNGReader(std::string& filename, std::string out) : ImageToASCII(filename, out){};
-    void loadPicture();
-    void printPicture();
+    PNGReader() : ImageToASCII(){};
+    void loadPicture(double scaleFactor);
+    std::string getASCIIString(double scaleFactor = 1.00) override;
 
 private:
     int height{0};
     std::vector<char> asciiChars;
     std::vector<unsigned char> image;
     int width{0};
-    void createASCIIString();
+    void createASCIIString(double scaleFactor);
 
 };
 
