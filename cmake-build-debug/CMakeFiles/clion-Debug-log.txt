@@ -1,0 +1,4 @@
+C:\Users\Deer\AppData\Local\Programs\CLion\bin\cmake\win\x64\bin\cmake.exe -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - MinGW Makefiles" -S C:\Users\Deer\codecool\c++\cpp-magic-ascii-art -B C:\Users\Deer\codecool\c++\cpp-magic-ascii-art\cmake-build-debug
+-- Configuring done (0.1s)
+-- Generating done (0.0s)
+-- Build files have been written to: C:/Users/Deer/codecool/c++/cpp-magic-ascii-art/cmake-build-debug
