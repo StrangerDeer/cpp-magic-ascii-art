@@ -9,19 +9,18 @@
 #include <string>
 #include <vector>
 #include <fstream>
-#include "lodepng/lodepng.h"
+#include "ImageToASCII.h"
+#include "../lodepng/lodepng.h"
 
-class PNGReader {
+class PNGReader : public ImageToASCII {
 
 public:
-    PNGReader(std::string& filename, std::string out) : filename(filename), outputPath(out) {};
+    PNGReader(std::string& filename, std::string out) : ImageToASCII(filename, out){};
     void loadPicture();
     void printPicture();
 
 private:
     int height{0};
-    std::string filename;
-    std::string outputPath;
     std::vector<char> asciiChars;
     std::vector<unsigned char> image;
     int width{0};

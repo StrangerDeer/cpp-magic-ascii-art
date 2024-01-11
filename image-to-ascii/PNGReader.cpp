@@ -10,7 +10,7 @@ void PNGReader::loadPicture() {
 
     unsigned w, h;
 
-    lodepng::load_file(buffer, filename); //load the image file with given filename
+    lodepng::load_file(buffer, imagePath); //load the image file with given filename
 
     lodepng::State state;
 
@@ -45,8 +45,6 @@ void PNGReader::loadPicture() {
 
 void PNGReader::createASCIIString() {
 
-    std::string charactersToUse = " .,:;ox%#@";
-
     for(int i = 0; i < image.size(); i += 4){
 
         char result;
@@ -56,8 +54,8 @@ void PNGReader::createASCIIString() {
         int blue = (int)image[i+2];
 
         int value = static_cast<int>(0.3 * red + 0.59 * green + 0.11 * blue);
-        value = (value * charactersToUse.length()) / 256;
-        result = charactersToUse[charactersToUse.length() - 1 - value];
+        value = (value * characters.length()) / 256;
+        result = characters[characters.length() - 1 - value];
         asciiChars.push_back(result);
 
     }

@@ -15,5 +15,5 @@ add_executable(cpp_magic_ascii_art main.cpp
         image-to-ascii/BMPToASCII.h
         lodepng/lodepng.cpp
         lodepng/lodepng.h
-        PNGReader.cpp
-        PNGReader.h)
+        image-to-ascii/PNGReader.cpp
+        image-to-ascii/PNGReader.h)
