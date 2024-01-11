@@ -8,6 +8,8 @@
 #include <vector>
 #include <map>
 #include "../image-to-ascii/ImageToASCII.h"
+#include "../image-to-ascii/PNGReader.h"
+#include "../image-to-ascii/BMPToASCII.h"
 
 class Menu {
 public:
@@ -16,7 +18,9 @@ public:
 
 private:
     std::vector<std::string> fileFormats = {"bmp", "png"};
-    std::vector<std::string> imageNames = {"thumbs_up", "person_with_candle"};
+    std::vector<std::string> imageNames;
+    std::vector<std::string> bmpImages = {"thumbs_up", "person_with_candle", "antilope"};
+    std::vector<std::string> pngImages = {"thumbs_up", "person_with_candle", "boing", "szemuveges_no", "cica", "bob_ross", "solaire"};
     std::vector<std::string> scaleFactors = {"extra large", "large", "normal", "small", "extra small"};
 
     void displayImageNames();
@@ -49,6 +53,9 @@ private:
     bool isImageDisplayed;
 
     ImageToASCII* converter;
+    PNGReader pngReader;
+    BMPToASCII bmpToAscii;
+
 
     bool isRunning;
 };

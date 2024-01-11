@@ -5,16 +5,19 @@
 #include <iostream>
 #include "Menu.h"
 #include "../image-to-ascii/BMPToASCII.h"
+#include "../image-to-ascii/PNGReader.h"
 
 Menu::Menu() {
     isRunning = true;
+    bmpToAscii = BMPToASCII();
+    pngReader = PNGReader();
 }
 
 void Menu::run() {
     while (isRunning) {
-        std::cout << "Which image would you like to turn to ASCII?" << std::endl;
-        displayImageNames();
+        std::cout << "Please choose an image format!" << std::endl;
         displayFileFormats();
+        displayImageNames();
         getImagePath();
         chooseOutputName();
         displayScaleFactors();
@@ -63,11 +66,14 @@ void Menu::chooseFileFormat(const int &input) {
     switch (input) {
         case 1: {
             chosenFileFormat = "bmp";
-            converter = new BMPToASCII();
+            imageNames = bmpImages;
+            converter = &bmpToAscii;
             break;
         }
         case 2: {
             chosenFileFormat = "png";
+            imageNames = pngImages;
+            converter = &pngReader;
             break;
         }
         default: {
@@ -87,7 +93,7 @@ void Menu::chooseOutputName() {
     std::string outputName;
     std::cout << "Choose a name for the new txt file!" << std::endl;
     std::cin >> outputName;
-    outputPath = "../pics/" + outputName + ".txt";
+    outputPath = "../pics/out/" + outputName + ".txt";
     converter->setOutputPath(outputPath);
 }
 
@@ -118,23 +124,23 @@ void Menu::displayScaleFactors() {
 void Menu::chooseScaleFactor(const int &input) {
     switch (input) {
         case 1: {
-            imageScaleFactor = 0.6;
+            imageScaleFactor = 1.25;
             break;
         }
         case 2: {
-            imageScaleFactor = 0.45;
+            imageScaleFactor = 1;
             break;
         }
         case 3: {
-            imageScaleFactor = 0.35;
+            imageScaleFactor = 0.75;
             break;
         }
         case 4: {
-            imageScaleFactor = 0.25;
+            imageScaleFactor = 0.5;
             break;
         }
         case 5: {
-            imageScaleFactor = 0.15;
+            imageScaleFactor = 0.25;
             break;
         }
         default: {
@@ -202,13 +208,13 @@ void Menu::chooseIfImageWillBeDisplayed(const int &input) {
 }
 
 void Menu::processImage() {
+    std::cout << "Processing image..." << std::endl;
     if (isImageDisplayed) {
         std::cout << converter->getASCIIString(imageScaleFactor) << std::endl;
     } else {
         converter->getASCIIString(imageScaleFactor);
     }
-
-    delete converter;
+    std::cout << "Processing image complete!" << std::endl;
 }
 
 void Menu::displayContinue() {
